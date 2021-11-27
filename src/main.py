@@ -33,8 +33,8 @@ class Login(QDialog):
         password=self.password.text()
         print("Successfully logged in with email: ", email, "and password:", password)
         
-        # data = requests.get('http://127.0.0.1:8000/booking')
-        # print(data.text)
+        data = requests.get('http://127.0.0.1:8000/booking')
+        print(data.json())
 
     def gotocreate(self):
         createacc=CreateAcc()
