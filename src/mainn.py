@@ -8,23 +8,6 @@ from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from jose import JWTError, jwt
 from passlib.context import CryptContext
 from pydantic import BaseModel
-from re import search
-from typing import List
-from fastapi import Depends, FastAPI, HTTPException, UploadFile, File
-from sqlalchemy.orm import Session
-import psycopg2
-import sys
-sys.path.insert(0, './src')
-import models
-import schemas
-from database import db
-from fastapi.responses import FileResponse
-import shutil
-import json
-import os
-import os.path
- 
-cur = db.connect()
 
 SECRET_KEY = "09d25e094faa6ca2556c818166b7a9563b93f7099f6f0f4caa6cf63b88e8d3e7"
 ALGORITHM = "HS256"
@@ -76,7 +59,7 @@ def get_user(db, username: str):
         user_dict = db[username]
         return UserInDB(**user_dict) #supposed to be hash keknya
 
-def authenticate_user(fake_db, username: str, password: str): #Login keknya
+def authenticate_user(fake_db, username: str, password: str):
     user = get_user(fake_db, username)
     if not user:
         return False
@@ -157,7 +140,7 @@ async def update_data(item_id: int, name:str, current_user: User = Depends(get_c
         if menu_item['id'] == item_id:
             menu_item['name']=name
         read_file.close()
-        with open("./menu.json", "w") as write_file:
+        with open("menu.json", "w") as write_file:
             json.dump(data,write_file,indent=4)
         write_file.close()
         return("Data berhasil diubah")
@@ -194,57 +177,3 @@ async def reset_password(current_password: str, password:str,current_user: User 
         return('Password berhasil diubah!')
     else:
         return('Password salah!')
-
-@app.get("/tuteers")
-async def gettuteers():
-    item = cur.execute('SELECT * FROM tuteers')
-    result = item.fetchall()
-    return result
-@app.get('/getjson')
-async def getjson():
-    return(fake_users_db)
-
-@app.get("/reviewer")
-async def getreviewer():
-    item = cur.execute('SELECT * FROM reviewer')
-    result = item.fetchall()
-    return result[0]
-    
-@app.get('/resetpasswordsql/', tags=["Manajemen Akun"])
-async def reset_passwordsql(input: str):
-    # if verify_password(current_password,(gettuteers()[current_user.username])['hashed_password']):
-    #     (gettuteers()[current_user.username])['hashed_password'] = get_password_hash(password)
-    #     with open("user.json", "w") as write_file:
-    #         json.dump(gettuteers(),write_file,indent=4)
-    #     write_file.close()
-    #     return('Password berhasil diubah!')
-    # else:
-    #     return('Password salah!')
-    update_formula = 'UPDATE tuteers SET "hashedPassword" = %s WHERE "ID_Tuteers" = 1'
-    values = (get_password_hash(input))
-    item = cur.execute(update_formula, values)
-    return ("Query Update Success")
-
-
-@app.get('/gantinohp')
-async def gantinohp(nohp: str):
-    update_formula = 'UPDATE tuteers SET "noHP" = %s WHERE "ID_Tuteers" = 1'
-    values = (nohp)
-    item = cur.execute(update_formula, values)
-    return ("Query Update Success")
-
-@app.get('/apakahpasswordsama')
-async def samaga():
-    select_formula = 'SELECT "hashedPassword" FROM tuteers WHERE "ID_Tuteers" = 1;'
-    item = cur.execute(select_formula)   
-    result = item.fetchone()
-    if verify_password("asdf", result[0]):
-         return ("Biza")
-    else:
-        return ("h")
-    # return result[0]
-
-@app.get('/hashpass')
-async def hashingpass(pas: str):
-    return(get_password_hash(pas))
-

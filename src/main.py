@@ -5,20 +5,25 @@ from PyQt5.uic import loadUi
 from PyQt5.QtGui import QPixmap
 from re import search
 from typing import List
-from fastapi import Depends, FastAPI, HTTPException, UploadFile, File
-from sqlalchemy.orm import Session
-import psycopg2
-import sys
-sys.path.insert(0, './src')
-import models
-import schemas
-from database import db
-from fastapi.responses import FileResponse
-import shutil
-import json
-import os
-import os.path
-import requests
+# from fastapi import Depends, FastAPI, HTTPException, UploadFile, File
+# from sqlalchemy.orm import Session
+# import psycopg2
+# import sys
+# sys.path.insert(0, './src')
+# import models
+# import schemas
+# from database import db
+# from fastapi.responses import FileResponse
+# import shutil
+# import json
+# import os
+# import os.path
+# import requests
+
+class Test(QDialog):
+    def __init__(self):
+        super(Test,self).__init__()
+        loadUi('login.ui',self)    
 
 class Login(QDialog):
     def __init__(self):
@@ -84,7 +89,7 @@ class CreateAcc(QDialog):
 
 
 app=QApplication(sys.argv)
-mainwindow=Login()
+mainwindow=CreateAcc()
 widget=QtWidgets.QStackedWidget()
 widget.addWidget(mainwindow)
 widget.setFixedWidth(1435)
