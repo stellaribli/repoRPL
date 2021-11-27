@@ -3,8 +3,7 @@ import datetime
 from pydantic import BaseModel
 from enum import Enum
 from sqlalchemy.sql.elements import Null
-
-
+import enum
 
 class Gender(int, Enum):
     male = 0
@@ -42,7 +41,6 @@ class Review(BaseModel):
     class Config:
         orm_mode = True
 
-
 class Transaksi(BaseModel):
     Metode_Pembayaran: str
     Bukti_Pembayaran: bool
@@ -51,7 +49,6 @@ class Transaksi(BaseModel):
     class Config:
         orm_mode = True
     
-
 class Booking(BaseModel):
     ID_Booking: int
     ID_Pemesan: int
@@ -61,7 +58,6 @@ class Booking(BaseModel):
     class Config:
         orm_mode = True
 
-
 class Paket(BaseModel):
     ID_Paket: int    
     durasi: int
@@ -70,7 +66,6 @@ class Paket(BaseModel):
 
     class Config:
         orm_mode = True
-
 
 class TuteersBooking(Tuteers):
     pesanan: List[Booking] = []
@@ -83,3 +78,27 @@ class ReviewerCVReview(Reviewer):
     class Config:
         orm_mode = True
 
+
+#Stella
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+
+class TokenData(BaseModel):
+    username: Optional[str] = None
+
+class User(BaseModel):
+    username: str
+    email: Optional[str] = None
+    full_name: Optional[str] = None
+    disabled: Optional[bool] = None
+    tanggal_lahir:Optional[str] = None
+    jenis_kelamin: Optional[str] = None
+    nomor_hp: Optional[int] = None
+
+class UserInDB(User):
+    hashed_password: str
+
+class GenderEnum(enum.Enum):
+    Male = "Male"
+    Female = "Female"

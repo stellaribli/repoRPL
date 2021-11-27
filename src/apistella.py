@@ -1,6 +1,4 @@
-from enum import Enum
 from datetime import date, datetime, timedelta
-import enum
 import json
 from fastapi import Depends, FastAPI, HTTPException, status
 from fastapi.responses import JSONResponse
@@ -17,9 +15,8 @@ import psycopg2
 import sys
 sys.path.insert(0, './src')
 import models
-import schemas
+from schemas import UserInDB, User, TokenData, Token, GenderEnum
 from database import db
-from fastapi.responses import FileResponse
 import shutil
 import os
 import os.path
@@ -31,36 +28,18 @@ ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
 app = FastAPI(description ="Login Account Tuteers")
-
-class Token(BaseModel):
-    access_token: str
-    token_type: str
-
-class TokenData(BaseModel):
-    username: Optional[str] = None
-
-class User(BaseModel):
-    username: str
-    email: Optional[str] = None
-    full_name: Optional[str] = None
-    disabled: Optional[bool] = None
-    tanggal_lahir:Optional[str] = None
-    jenis_kelamin: Optional[str] = None
-    nomor_hp: Optional[int] = None
-
-class UserInDB(User):
-    hashed_password: str
-
-class GenderEnum(enum.Enum):
-    Male = "Male"
-    Female = "Female"
-
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 with open("user.json", "r") as read_file:
     fake_users_db = json.load(read_file)
 read_file.close()
+ 
+def apakahEmailExist(email:str):
+    query = "SELECT EXISTS(SELECT * from tuteers WHERE email = %s);"
+    values = email
+    Execute=cur.execute(query,values).fetchone()
+    print(Execute[0])
 
 def hitungJumlahAkun():
     hitungJumlahAkun = cur.execute('SELECT COUNT(*) FROM tuteers;')
@@ -92,9 +71,27 @@ def get_user(db, username: str):
     if username in db:
         user_dict = db[username]
         return UserInDB(**user_dict) #supposed to be hash keknya
+# @app.get('/sdfsdf')
+# async def ()
+# print (fake_users_db ['asdf'])
+print("")
+item = cur.execute('SELECT * FROM tuteers where "ID_Tuteers" = 1')
+# print (item.fetchone())
+def get_user_sql(db, email: str):
+    if apakahEmailExist(email):
+        item = cur.execute('SELECT * FROM tuteers where "ID_Tuteers" = 1')
+        print (item.fetchone())
+        user_dict = db[email]
+        return UserInDB(**user_dict)
 
+# Fake Users DB
 print(get_user(fake_users_db,'asdf'))
-# print(get_user(cur,'asdf'))
+print()
+print(UserInDB(**(fake_users_db ['asdf'])))
+
+item = cur.execute ('SELECT * FROM tuteers where "ID_Tuteers" = 1;')
+fetched = item.fetchone()
+# print(UserInDB(**fetched))
 
 def authenticate_user(fake_db, username: str, password: str): #Login keknya
     user = get_user(fake_db, username)
@@ -194,6 +191,7 @@ async def gettuteers():
     item = cur.execute('SELECT email FROM tuteers')
     result = item.fetchall()
     return result
+
 
 # @app.get('/apakahpasswordsama')
 # async def samaga(a: str):

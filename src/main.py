@@ -18,7 +18,7 @@ from typing import List
 # import json
 # import os
 # import os.path
-# import requests
+import requests
 
 class Test(QDialog):
     def __init__(self):
@@ -57,14 +57,15 @@ class CreateAcc(QDialog):
 
 
     def createaccfunction(self):
-        namalengkap = self.namalengkap.text()
-        email = self.email.text()
-        tanggallahir = self.tanggallahir.text()
-        jeniskelamin = self.jeniskelamin.text()
-        nomorhp = self.nomorhp.text()
         if self.password.text()==self.confirmpass.text():
+            namalengkap = self.namalengkap.text()
+            email = self.email.text()
+            tanggallahir = self.tanggallahir.text()
+            jeniskelamin = self.jeniskelamin.text()
+            nomorhp = self.nomorhp.text()
             password=self.password.text()
             print("Successfully created acc with email: ", email)
+            
             text_file = open("login.txt", "w")
             text_file.write(namalengkap + '\n')
             text_file.write(email + '\n')
@@ -83,10 +84,6 @@ class CreateAcc(QDialog):
         loginacc=Login()
         widget.addWidget(loginacc)
         widget.setCurrentIndex(widget.currentIndex()+1)
-
-# @app.get("/x"):
-# async 
-
 
 app=QApplication(sys.argv)
 mainwindow=CreateAcc()
