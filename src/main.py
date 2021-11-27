@@ -46,6 +46,9 @@ class Login(QDialog):
         widget.addWidget(createacc)
         widget.setCurrentIndex(widget.currentIndex()+1)
 
+data = requests.get('http://127.0.0.1:8000/testt')
+print(data.json())
+
 class CreateAcc(QDialog):
     def __init__(self):
         super(CreateAcc,self).__init__()
@@ -60,20 +63,26 @@ class CreateAcc(QDialog):
         if self.password.text()==self.confirmpass.text():
             namalengkap = self.namalengkap.text()
             email = self.email.text()
-            tanggallahir = self.tanggallahir.text()
+            year = self.year.text()
+            month = self.month.text()
+            date = self.date.text()
             jeniskelamin = self.jeniskelamin.text()
             nomorhp = self.nomorhp.text()
             password=self.password.text()
+            confirmpass = self.confirmpass.text()
+
+            url = 'http://127.0.0.1:8000/registerSQL?name=' + namalengkap + '&email=' + email + '&password=' + password + '&reenterpass=' + confirmpass + '&noHP=' + nomorhp + '&year=' + year + '&month=' + month + '&date=' + date + '&gender=' + jeniskelamin
+            requests.post(url)
             print("Successfully created acc with email: ", email)
-            
-            text_file = open("login.txt", "w")
-            text_file.write(namalengkap + '\n')
-            text_file.write(email + '\n')
-            text_file.write(tanggallahir + '\n')
-            text_file.write(jeniskelamin + '\n')
-            text_file.write(nomorhp + '\n')
-            text_file.write(password)
-            text_file.close()
+
+            # text_file = open("login.txt", "w")
+            # text_file.write(namalengkap + '\n')
+            # text_file.write(email + '\n')
+            # text_file.write(tanggallahir + '\n')
+            # text_file.write(jeniskelamin + '\n')
+            # text_file.write(nomorhp + '\n')
+            # text_file.write(password)
+            # text_file.close()
             login=Login()
             widget.addWidget(login)
             widget.setCurrentIndex(widget.currentIndex()+1)

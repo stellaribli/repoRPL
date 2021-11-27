@@ -81,6 +81,9 @@ padding-left:15px;</string>
    <property name="text">
     <string/>
    </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Password</enum>
+   </property>
    <property name="placeholderText">
     <string>Kata Sandi</string>
    </property>
@@ -126,6 +129,9 @@ padding-left:15px;</string>
    <property name="text">
     <string/>
    </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Password</enum>
+   </property>
    <property name="placeholderText">
     <string>Ulangi Kata Sandi</string>
    </property>
@@ -166,7 +172,7 @@ font: 14pt &quot;Mulish&quot;;
     <string>Punya akun?</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="tanggallahir">
+  <widget class="QLineEdit" name="date">
    <property name="geometry">
     <rect>
      <x>540</x>
@@ -290,7 +296,7 @@ padding-left:15px;</string>
     <pixmap>:/images/akar-icons_calendar.png</pixmap>
    </property>
   </widget>
-  <widget class="QLineEdit" name="tanggallahir_2">
+  <widget class="QLineEdit" name="month">
    <property name="geometry">
     <rect>
      <x>670</x>
@@ -320,7 +326,7 @@ padding-right:15px;</string>
     <string>Month</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="tanggallahir_3">
+  <widget class="QLineEdit" name="year">
    <property name="geometry">
     <rect>
      <x>800</x>
@@ -351,6 +357,19 @@ padding-right:15px;</string>
    </property>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>namalengkap</tabstop>
+  <tabstop>email</tabstop>
+  <tabstop>date</tabstop>
+  <tabstop>month</tabstop>
+  <tabstop>year</tabstop>
+  <tabstop>jeniskelamin</tabstop>
+  <tabstop>nomorhp</tabstop>
+  <tabstop>password</tabstop>
+  <tabstop>confirmpass</tabstop>
+  <tabstop>signupbutton</tabstop>
+  <tabstop>loginaccbutton</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

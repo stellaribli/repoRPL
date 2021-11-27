@@ -148,8 +148,27 @@ async def isCurrUsername(username: str, current_user: User = Depends(get_current
 async def test(current_user: User = Depends(get_current_active_user)):
     return ("x")
 
+@app.get('/testt', tags = ['User Side'])
+async def test():
+    return ("x")
+
+
 @app.post('/registerSQL', tags = ['Manajemen Akun'])
-async def register_sql(name: str, email: str, password: str, reenterpass: str, noHP: str, year: int, month: int, date: int, gender: GenderEnum):
+async def register_sql(name: str, email: str, password: str, reenterpass: str, noHP: str, year: str, month: str, date: str, gender: str):
+    if password == reenterpass:
+        tanggal =  makeDateFormat(year,month,date)
+        genderStr = gender
+        passwordhashed = get_password_hash(password)
+        query1 = 'INSERT INTO tuteers ("nama", "email", "noHP", "tanggalLahir", "gender","hashedPassword") VALUES'
+        query2 = "(%s,%s,%s,%s,%s,%s);"
+        query = query1+query2
+        values = (name, email, noHP, tanggal, genderStr, passwordhashed)   
+        item = cur.execute(query, values)
+        return('Success')
+    else:
+        return('Password Tidak Sama!')
+
+async def register_sql_enum(name: str, email: str, password: str, reenterpass: str, noHP: str, year: int, month: int, date: int, gender: GenderEnum):
     if password == reenterpass:
         tanggal =  makeDateFormat(year,month,date)
         genderStr = enumToStr(gender)
