@@ -49,13 +49,14 @@ width: 376.5159912109375px;
 left: 538px;
 top: 229px;
 border-radius: 13.25760269165039px;
-border: 1.4px solid #2B3242;</string>
+border: 1.4px solid #2B3242;
+padding-left:15px;</string>
    </property>
    <property name="text">
     <string/>
    </property>
    <property name="placeholderText">
-    <string>   E-mail</string>
+    <string>E-mail</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="password">
@@ -74,13 +75,14 @@ width: 376.5159912109375px;
 left: 538px;
 top: 229px;
 border-radius: 13.25760269165039px;
-border: 1.4px solid #2B3242;</string>
+border: 1.4px solid #2B3242;
+padding-left:15px;</string>
    </property>
    <property name="text">
     <string/>
    </property>
    <property name="placeholderText">
-    <string>   Kata Sandi</string>
+    <string>Kata Sandi</string>
    </property>
   </widget>
   <widget class="QPushButton" name="signupbutton">
@@ -118,13 +120,14 @@ width: 376.5159912109375px;
 left: 538px;
 top: 229px;
 border-radius: 13.25760269165039px;
-border: 1.4px solid #2B3242;</string>
+border: 1.4px solid #2B3242;
+padding-left:15px;</string>
    </property>
    <property name="text">
     <string/>
    </property>
    <property name="placeholderText">
-    <string>   Ulangi Kata Sandi</string>
+    <string>Ulangi Kata Sandi</string>
    </property>
   </widget>
   <widget class="QPushButton" name="loginaccbutton">
@@ -148,7 +151,7 @@ Border: 0px;</string>
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>670</x>
+     <x>650</x>
      <y>620</y>
      <width>91</width>
      <height>21</height>
@@ -168,24 +171,29 @@ font: 14pt &quot;Mulish&quot;;
     <rect>
      <x>540</x>
      <y>310</y>
-     <width>401</width>
+     <width>121</width>
      <height>41</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true"> font: 15pt &quot;Mulish&quot;;color:#1D2D5E; 
 height: 47.76695251464844px;
-width: 376.5159912109375px;
+width: 405px;
 left: 538px;
 top: 229px;
 border-radius: 13.25760269165039px;
-border: 1.4px solid #2B3242;</string>
+border: 1.4px solid #2B3242;
+padding-left:15px;
+padding-right:15px;</string>
    </property>
    <property name="text">
     <string/>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
    <property name="placeholderText">
-    <string>   Tanggal Lahir</string>
+    <string>Date</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="jeniskelamin">
@@ -204,13 +212,14 @@ width: 376.5159912109375px;
 left: 538px;
 top: 229px;
 border-radius: 13.25760269165039px;
-border: 1.4px solid #2B3242;</string>
+border: 1.4px solid #2B3242;
+padding-left:15px;</string>
    </property>
    <property name="text">
     <string/>
    </property>
    <property name="placeholderText">
-    <string>   Jenis Kelamin</string>
+    <string>Jenis Kelamin</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="nomorhp">
@@ -229,13 +238,14 @@ width: 376.5159912109375px;
 left: 538px;
 top: 229px;
 border-radius: 13.25760269165039px;
-border: 1.4px solid #2B3242;</string>
+border: 1.4px solid #2B3242;
+padding-left:15px;</string>
    </property>
    <property name="text">
     <string/>
    </property>
    <property name="placeholderText">
-    <string>   Nomor Handphone</string>
+    <string>Nomor Handphone</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="namalengkap">
@@ -254,13 +264,14 @@ width: 376.5159912109375px;
 left: 538px;
 top: 229px;
 border-radius: 13.25760269165039px;
-border: 1.4px solid #2B3242;</string>
+border: 1.4px solid #2B3242;
+padding-left:15px;</string>
    </property>
    <property name="text">
     <string/>
    </property>
    <property name="placeholderText">
-    <string>   Nama Lengkap</string>
+    <string>Nama Lengkap</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_2">
@@ -279,9 +290,67 @@ border: 1.4px solid #2B3242;</string>
     <pixmap>:/images/akar-icons_calendar.png</pixmap>
    </property>
   </widget>
+  <widget class="QLineEdit" name="tanggallahir_2">
+   <property name="geometry">
+    <rect>
+     <x>670</x>
+     <y>310</y>
+     <width>121</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"> font: 15pt &quot;Mulish&quot;;color:#1D2D5E; 
+height: 47.76695251464844px;
+width: 405px;
+left: 538px;
+top: 229px;
+border-radius: 13.25760269165039px;
+border: 1.4px solid #2B3242;
+padding-left:15px;
+padding-right:15px;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="placeholderText">
+    <string>Month</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="tanggallahir_3">
+   <property name="geometry">
+    <rect>
+     <x>800</x>
+     <y>310</y>
+     <width>141</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"> font: 15pt &quot;Mulish&quot;;color:#1D2D5E; 
+height: 47.76695251464844px;
+width: 405px;
+left: 538px;
+top: 229px;
+border-radius: 13.25760269165039px;
+border: 1.4px solid #2B3242;
+padding-left:15px;
+padding-right:15px;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="placeholderText">
+    <string>Year</string>
+   </property>
+  </widget>
  </widget>
- <resources>
-  <include location="req.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

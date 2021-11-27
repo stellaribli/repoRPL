@@ -49,13 +49,14 @@ width: 376.5159912109375px;
 left: 538px;
 top: 229px;
 border-radius: 13.25760269165039px;
-border: 1.4px solid #2B3242;</string>
+border: 1.4px solid #2B3242;
+padding-left:15px;</string>
    </property>
    <property name="text">
     <string/>
    </property>
    <property name="placeholderText">
-    <string>   E-mail</string>
+    <string>E-mail</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="password">
@@ -74,13 +75,14 @@ width: 376.5159912109375px;
 left: 538px;
 top: 229px;
 border-radius: 13.25760269165039px;
-border: 1.4px solid #2B3242;</string>
+border: 1.4px solid #2B3242;
+padding-left:15px;</string>
    </property>
    <property name="text">
     <string/>
    </property>
    <property name="placeholderText">
-    <string>   Kata Sandi</string>
+    <string>Kata Sandi</string>
    </property>
   </widget>
   <widget class="QPushButton" name="loginbutton">
