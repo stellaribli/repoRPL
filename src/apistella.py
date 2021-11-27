@@ -8,6 +8,23 @@ from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from jose import JWTError, jwt
 from passlib.context import CryptContext
 from pydantic import BaseModel
+from re import search
+from typing import List
+from fastapi import Depends, FastAPI, HTTPException, UploadFile, File
+from sqlalchemy.orm import Session
+import psycopg2
+import sys
+sys.path.insert(0, './src')
+import models
+import schemas
+from database import db
+from fastapi.responses import FileResponse
+import shutil
+import json
+import os
+import os.path
+ 
+cur = db.connect()
 
 SECRET_KEY = "09d25e094faa6ca2556c818166b7a9563b93f7099f6f0f4caa6cf63b88e8d3e7"
 ALGORITHM = "HS256"
@@ -59,7 +76,7 @@ def get_user(db, username: str):
         user_dict = db[username]
         return UserInDB(**user_dict) #supposed to be hash keknya
 
-def authenticate_user(fake_db, username: str, password: str):
+def authenticate_user(fake_db, username: str, password: str): #Login keknya
     user = get_user(fake_db, username)
     if not user:
         return False
@@ -177,3 +194,17 @@ async def reset_password(current_password: str, password:str,current_user: User 
         return('Password berhasil diubah!')
     else:
         return('Password salah!')
+
+@app.get("/tuteers")
+async def gettuteers():
+    item = cur.execute('SELECT * FROM tuteers')
+    result = item.fetchall()
+    return result
+@app.get('/getjson')
+async def getjson():
+    return(fake_users_db)
+@app.get("/reviewer")
+async def getreviewer():
+    item = cur.execute('SELECT * FROM reviewer')
+    result = item.fetchall()
+    return result[0]
