@@ -34,7 +34,6 @@ class MainReviewer2(QDialog, QMainWindow):
         self.buttonunggah.clicked.connect(self.upload_cv)
         self.load_data()
 
-
     def load_data(self):
         cur_user_id = 1
         headers = {'Accept': 'application/json'}
