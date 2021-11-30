@@ -203,18 +203,9 @@ class AboutUs(QDialog):
     def __init__(self):
         super(AboutUs,self).__init__()
         loadUi('aboutus.ui',self) 
-        # self.logoutbutton.setText(currentName) 
-        # self.usr()
-        # self.show()
-        # self.logoutbutton.clicked.connect(currentName) 
         self.logoutbutton.clicked.connect(self.goToLogin)     
         self.aboutmebutton.clicked.connect(self.gotoaboutus) 
         self.layananbutton_4.clicked.connect(self.goToHome)
-        
-    # def usr(self): 
-    #     global currentName
-    #     print(currentName)
-    #     self.show()
 
     def goToLogin(self):
         global loggedin
@@ -242,7 +233,6 @@ class HomeScreen(QMainWindow):
         self.aboutmebutton.clicked.connect(self.goToAbout)
         self.logoutbutton.clicked.connect(self.goToLogin)
     
-
     def goToBooking(self):
         pesan = PilihPaket()
         widget.addWidget(pesan)
@@ -281,11 +271,19 @@ class UploadCV(QDialog):
         self.prosesReview.hide()
         self.delete_button.clicked.connect(self.deleteCV)
         self.homescreen.clicked.connect(self.goToHomeScreen)
-        self.aboutmebutton.clicked.connect(self.goToAboutMe)
-        self.layananbutton_4.clicked.connect(self.goToHomeScreen)
+        # self.aboutmebutton.clicked.connect(self.goToAboutMe)
+        # self.layananbutton_4.clicked.connect(self.goToHomeScreen)
         self.aboutmebutton.hide()
         self.layananbutton_4.hide()
+        self.logoutbutton.clicked.connect(self.goToLogin)   
+
+    def goToAbout(self):
+        widget.setCurrentIndex(3)
     
+    def goToLogin(self):
+        global loggedin
+        loggedin = False
+        widget.setCurrentIndex(0)
     def uploadCV(self):
         fileName, _ = QFileDialog.getOpenFileName(self, "Upload CV File", "", "PDF Files (*.pdf)")
         if fileName:
@@ -342,8 +340,6 @@ class UploadCV(QDialog):
 
     def goToAboutMe(self):
         widget.setCurrentIndex(3)
-
-
 
 #Agunk
 class PilihPaket(QDialog):
@@ -414,10 +410,26 @@ class Pembayaran(QDialog):
         print(self.getPaketofBooking(cur_booking_id))
         self.bayar.clicked.connect(lambda: self.pembayaran(cur_booking_id))
         self.cancel.clicked.connect(lambda: self.BatalPesanan(cur_booking_id))
+        self.cancel.clicked.connect(self.goToHome)
         self.rincian.setText("Paket " + str(self.getPaketofBooking(cur_booking_id)['jumlah_cv']) + " CV - " + str(self.getPaketofBooking(cur_booking_id)['durasi']) + " Hari")
         self.harga.setText("Rp "+ str(self.getPaketofBooking(cur_booking_id)['harga']))
         self.bookingNumber.setText("#" + str(self.getBooking(cur_booking_id)['ID_Booking']))
+        self.logoutbutton.clicked.connect(self.goToLogin)
         self.reloadUi()
+
+    def goToHome(self):
+        widget.setCurrentIndex(5)
+
+    def goToStatus(self):
+        pass
+
+    def goToAbout(self):
+        widget.setCurrentIndex(3)
+    
+    def goToLogin(self):
+        global loggedin
+        loggedin = False
+        widget.setCurrentIndex(0)
 
     def reloadUi(self):
         self.rincian.setText("Paket " + str(self.getPaketofBooking(cur_booking_id)['jumlah_cv']) + " CV - " + str(self.getPaketofBooking(cur_booking_id)['durasi']) + " Hari")
@@ -470,7 +482,7 @@ class MainReviewer2(QDialog, QMainWindow):
         # self.tabelsemuapesanan.setColumnWidth(4,170)  
         self.buttonpesanan.clicked.connect(self.gotomain1)
         self.load_data()
-
+        self.logoutbutton.clicked.connect(self.goToLogin)
 
     def load_data(self):
         headers = {'Accept': 'application/json'}
@@ -500,6 +512,9 @@ class MainReviewer2(QDialog, QMainWindow):
         widget.addWidget(mainreviewer1)
         widget.setCurrentIndex(widget.currentIndex()+1)
 
+    def goToLogin(self):
+        widget.setCurrentIndex(0)
+
 class MainReviewer1(QDialog, QMainWindow):
     def __init__(self):
         super(MainReviewer1,self).__init__()
@@ -512,6 +527,7 @@ class MainReviewer1(QDialog, QMainWindow):
         # self.tabelsemuapesanan.setColumnWidth(3,170)  
         self.buttonpesanandia.clicked.connect(self.gotomain2)
         self.load_data1()
+        self.logoutbutton.clicked.connect(self.goToLogin)
 
     def load_data1(self):
         headers = {'Accept': 'application/json'}
@@ -534,6 +550,8 @@ class MainReviewer1(QDialog, QMainWindow):
         widget.addWidget(mainreviewer2)
         widget.setCurrentWidget(mainreviewer2)
 
+    def goToLogin(self):
+        widget.setCurrentIndex(0)
 
 # widget.addWidget(UploadCV()) #Index jadi 5
 # widget.addWidget(PilihPaket()) #Index jadi 6
@@ -546,6 +564,8 @@ widget.addWidget(CreateAcc()) #Index jadi 1
 widget.addWidget(ResetPassword()) #Index jadi 2
 widget.addWidget(AboutUs())  #Index jadi 3
 widget.addWidget(HomeScreen())  #Index jadi 4
+pilihPaket = PilihPaket()
+widget.addWidget(pilihPaket)
 # widget.addWidget(MainReviewer1()) #Index jadi 5
 # widget.addWidget(MainReviewer2()) #Index jadi 6
 widget.setCurrentIndex(0) 
