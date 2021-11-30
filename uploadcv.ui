@@ -1,0 +1,645 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1280</width>
+    <height>720</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
+  </property>
+  <widget class="QLabel" name="labelPesanan">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>130</y>
+     <width>171</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Mulish</family>
+     <pointsize>18</pointsize>
+     <weight>75</weight>
+     <italic>false</italic>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Pesanan</string>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="paket_box">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>200</y>
+     <width>631</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(29, 45, 94); border-radius: 10px</string>
+   </property>
+   <property name="title">
+    <string/>
+   </property>
+   <widget class="QLabel" name="paketText">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>61</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Mulish</family>
+      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: white</string>
+    </property>
+    <property name="text">
+     <string>Paket</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="labelbayar">
+   <property name="geometry">
+    <rect>
+     <x>820</x>
+     <y>200</y>
+     <width>411</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(29, 45, 94); border-radius: 10px</string>
+   </property>
+   <property name="title">
+    <string/>
+   </property>
+   <widget class="QLabel" name="bayar">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>121</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Mulish</family>
+      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: white</string>
+    </property>
+    <property name="text">
+     <string>Pembayaran</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QFrame" name="tagihan">
+   <property name="geometry">
+    <rect>
+     <x>820</x>
+     <y>260</y>
+     <width>411</width>
+     <height>211</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius: 10px;
+background-color: rgb(232, 232, 232);</string>
+   </property>
+   <widget class="QLabel" name="harga">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>40</y>
+      <width>131</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Mulish</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Rp  XXX</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tagihantitle">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Mulish</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Tagihan</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="rincian">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>40</y>
+      <width>181</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Mulish</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Paket XCV - Y Hari</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="paymentsuccess">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>170</y>
+      <width>171</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Mulish</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(0, 204, 57);</string>
+    </property>
+    <property name="text">
+     <string>Pembayaran Berhasil</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="bank">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>110</y>
+      <width>181</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Mulish</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>BCA Virtual Account</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="rekening">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>110</y>
+      <width>181</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Mulish</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>9876543210987654</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>70</y>
+      <width>141</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Mulish</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Booking Number</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="bookingNumber">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>70</y>
+      <width>141</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Mulish</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>xx</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QFrame" name="framePaket">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>290</y>
+     <width>631</width>
+     <height>151</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius: 10px;
+background-color: rgb(232, 232, 232);</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QLabel" name="jmlCV">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>30</y>
+      <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Mulish</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>X CV</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="jmlHari">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>30</y>
+      <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Mulish</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>X Hari</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="uploadButton">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>30</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 81 12pt &quot;Mulish ExtraBold&quot;;
+color: white;
+background-color: rgb(29, 45, 94);
+border-radius: 10px
+</string>
+    </property>
+    <property name="text">
+     <string>Unggah CV</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="fileName">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>40</y>
+      <width>151</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 10pt &quot;Mulish&quot;;</string>
+    </property>
+    <property name="text">
+     <string>No File Uploaded!</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="prosesReview">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>30</y>
+      <width>151</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 11pt &quot;Mulish&quot;; color:rgb(255, 153, 0)</string>
+    </property>
+    <property name="text">
+     <string>Proses Review</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="gambar">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>51</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../../img/resume (1).png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="delete_button">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>90</y>
+      <width>121</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 81 12pt &quot;Mulish ExtraBold&quot;;
+color: white;
+border-radius: 10px;
+background-color: rgb(255, 0, 0);
+</string>
+    </property>
+    <property name="text">
+     <string>Delete</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>55</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>img/cv.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="submitBookingButton">
+   <property name="geometry">
+    <rect>
+     <x>490</x>
+     <y>560</y>
+     <width>291</width>
+     <height>121</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 81 12pt &quot;Mulish ExtraBold&quot;;
+color: white;
+background-color: rgb(29, 45, 94);
+border-radius: 10px
+</string>
+   </property>
+   <property name="text">
+    <string>Submit Booking</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="homescreen">
+   <property name="geometry">
+    <rect>
+     <x>490</x>
+     <y>560</y>
+     <width>291</width>
+     <height>121</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 81 12pt &quot;Mulish ExtraBold&quot;;
+color: white;
+background-color: rgb(29, 45, 94);
+border-radius: 10px
+</string>
+   </property>
+   <property name="text">
+    <string>Back To Home Screen</string>
+   </property>
+  </widget>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1281</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background: #FFFFFF;</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QPushButton" name="logoutbutton">
+    <property name="geometry">
+     <rect>
+      <x>1030</x>
+      <y>30</y>
+      <width>211</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{ 
+	background-color: #1D2D5E; color:#FFFFFF;
+	font: 15pt &quot;Mulish&quot;;
+	border-radius: 13.25760269165039px;
+	border: 1.4px solid #2B3242;
+}
+
+ QPushButton:hover {
+	background-color: #4A577E; color:#fff;
+	border: 1.4px solid #2B3242;
+ }</string>
+    </property>
+    <property name="text">
+     <string>Log Out</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="aboutmebutton">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>30</y>
+      <width>171</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Mulish</family>
+      <pointsize>14</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:#000000;
+color: #2B3242;
+font: 14pt &quot;Mulish&quot;;
+Border: 0px;</string>
+    </property>
+    <property name="text">
+     <string>Tentang Kami</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="layananbutton_4">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>30</y>
+      <width>171</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Mulish</family>
+      <pointsize>14</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:#000000;
+color: #2B3242;
+font: 14pt &quot;Mulish&quot;;
+Border: 0px;</string>
+    </property>
+    <property name="text">
+     <string>Layanan</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>30</y>
+      <width>141</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>img/logo aksel.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../../img/cv.qrc"/>
+ </resources>
+ <connections/>
+</ui>
