@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1280</width>
+    <height>720</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>80</y>
+      <width>151</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../../img/logo aksel.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>660</y>
+      <width>571</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 87 12pt &quot;Mulish Black&quot;;
+font: 63 12pt &quot;Mulish SemiBold&quot;;</string>
+    </property>
+    <property name="text">
+     <string>©️2021 - Aksel CV Review - Tugas Besar RPL Kelompok 9</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>370</y>
+      <width>1281</width>
+      <height>271</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(242, 200, 16);</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="bookingButton">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>240</y>
+      <width>401</width>
+      <height>251</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 81 18pt &quot;Mulish ExtraBold&quot;;
+background-color: rgb(255, 255, 255);
+border-radius: 20px;
+color: rgb(29, 45, 94);
+</string>
+    </property>
+    <property name="text">
+     <string>Review CV</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frame_3">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>100</y>
+      <width>1281</width>
+      <height>271</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(29, 44, 93);</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="statusPesananButton">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>240</y>
+      <width>391</width>
+      <height>251</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 81 18pt &quot;Mulish ExtraBold&quot;;
+background-color: rgb(255, 255, 255);
+border-radius: 20px;
+color: rgb(29, 45, 94);
+
+</string>
+    </property>
+    <property name="text">
+     <string>Riwayat Pesanan</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frame_2">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1280</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: #FFFFFF;</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QPushButton" name="logoutbutton">
+     <property name="geometry">
+      <rect>
+       <x>1030</x>
+       <y>30</y>
+       <width>211</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{ 
+	background-color: #1D2D5E; color:#FFFFFF;
+	font: 15pt &quot;Mulish&quot;;
+	border-radius: 13.25760269165039px;
+	border: 1.4px solid #2B3242;
+}
+
+ QPushButton:hover {
+	background-color: #4A577E; color:#fff;
+	border: 1.4px solid #2B3242;
+ }</string>
+     </property>
+     <property name="text">
+      <string>Log Out</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="aboutmebutton">
+     <property name="geometry">
+      <rect>
+       <x>420</x>
+       <y>30</y>
+       <width>171</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Mulish</family>
+       <pointsize>14</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:#000000;
+color: #2B3242;
+font: 14pt &quot;Mulish&quot;;
+Border: 0px;</string>
+     </property>
+     <property name="text">
+      <string>Tentang Kami</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="layananbutton_4">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>30</y>
+       <width>171</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Mulish</family>
+       <pointsize>14</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:#000000;
+color: #2B3242;
+font: 14pt &quot;Mulish&quot;;
+Border: 0px;</string>
+     </property>
+     <property name="text">
+      <string>Layanan</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>30</y>
+       <width>141</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>img/logo aksel.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </widget>
+   <zorder>frame_3</zorder>
+   <zorder>frame</zorder>
+   <zorder>label</zorder>
+   <zorder>label_2</zorder>
+   <zorder>bookingButton</zorder>
+   <zorder>statusPesananButton</zorder>
+   <zorder>frame_2</zorder>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

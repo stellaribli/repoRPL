@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1429</width>
-    <height>804</height>
+    <width>1280</width>
+    <height>720</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,10 +19,10 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>670</x>
-     <y>230</y>
+     <x>540</x>
+     <y>200</y>
      <width>261</width>
-     <height>41</height>
+     <height>61</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -32,12 +32,15 @@ font: 30pt &quot;Mulish&quot;;</string>
    <property name="text">
     <string>Login Akun</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QLineEdit" name="email">
    <property name="geometry">
     <rect>
-     <x>540</x>
-     <y>300</y>
+     <x>470</x>
+     <y>280</y>
      <width>401</width>
      <height>41</height>
     </rect>
@@ -62,8 +65,8 @@ padding-left:15px;</string>
   <widget class="QLineEdit" name="password">
    <property name="geometry">
     <rect>
-     <x>540</x>
-     <y>350</y>
+     <x>470</x>
+     <y>330</y>
      <width>401</width>
      <height>41</height>
     </rect>
@@ -91,17 +94,24 @@ padding-left:15px;</string>
   <widget class="QPushButton" name="loginbutton">
    <property name="geometry">
     <rect>
-     <x>540</x>
+     <x>470</x>
      <y>410</y>
      <width>401</width>
      <height>41</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: #1D2D5E; color:#FFFFFF;
-font: 15pt &quot;Mulish&quot;;
-border-radius: 13.25760269165039px;
-border: 1.4px solid #2B3242;</string>
+    <string notr="true">QPushButton{ 
+	background-color: #1D2D5E; color:#FFFFFF;
+	font: 15pt &quot;Mulish&quot;;
+	border-radius: 13.25760269165039px;
+	border: 1.4px solid #2B3242;
+}
+
+ QPushButton:hover {
+	background-color: #4A577E; color:#fff;
+	border: 1.4px solid #2B3242;
+ }</string>
    </property>
    <property name="text">
     <string>Login</string>
@@ -110,15 +120,15 @@ border: 1.4px solid #2B3242;</string>
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>650</x>
-     <y>460</y>
-     <width>131</width>
+     <x>480</x>
+     <y>470</y>
+     <width>161</width>
      <height>21</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">color:#000000;
-font: 14pt &quot;Mulish&quot;;
+font: 12pt &quot;Mulish&quot;;
 </string>
    </property>
    <property name="text">
@@ -128,19 +138,64 @@ font: 14pt &quot;Mulish&quot;;
   <widget class="QPushButton" name="createaccbutton">
    <property name="geometry">
     <rect>
-     <x>790</x>
-     <y>460</y>
+     <x>800</x>
+     <y>470</y>
      <width>51</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Mulish</family>
+     <pointsize>12</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:#000000;
+font: 12pt &quot;Mulish&quot;;
+Border: 0px;</string>
+   </property>
+   <property name="text">
+    <string>Daftar</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>380</y>
+     <width>131</width>
      <height>21</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">color:#000000;
-font: 15pt &quot;Mulish&quot;;
+font: 12pt &quot;Mulish&quot;;
+</string>
+   </property>
+   <property name="text">
+    <string>Lupa Password?</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="loginaccbutton_3">
+   <property name="geometry">
+    <rect>
+     <x>740</x>
+     <y>380</y>
+     <width>121</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:#000000;
+font: 12pt &quot;Mulish&quot;;
 Border: 0px;</string>
    </property>
    <property name="text">
-    <string>Daftar</string>
+    <string>Reset Password</string>
    </property>
   </widget>
  </widget>
