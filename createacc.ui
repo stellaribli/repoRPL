@@ -199,7 +199,7 @@ padding-right:15px;</string>
     <set>Qt::AlignCenter</set>
    </property>
    <property name="placeholderText">
-    <string>Date</string>
+    <string>Date (XX)</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="jeniskelamin">
@@ -225,7 +225,7 @@ padding-left:15px;</string>
     <string/>
    </property>
    <property name="placeholderText">
-    <string>Jenis Kelamin</string>
+    <string>Jenis Kelamin (Female/Male)</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="nomorhp">
@@ -323,7 +323,7 @@ padding-right:15px;</string>
     <set>Qt::AlignCenter</set>
    </property>
    <property name="placeholderText">
-    <string>Month</string>
+    <string>Month (XX)</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="year">
@@ -353,7 +353,53 @@ padding-right:15px;</string>
     <set>Qt::AlignCenter</set>
    </property>
    <property name="placeholderText">
-    <string>Year</string>
+    <string>Year (XXXX)</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="Female">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>460</y>
+     <width>101</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 15pt &quot;Mulish&quot;;color:#1D2D5E; 
+height: 47.76695251464844px;
+width: 376.5159912109375px;
+left: 538px;
+top: 229px;
+border-radius: 13.25760269165039px;
+border: 1.4px solid #2B3242;
+padding-left:15px;</string>
+   </property>
+   <property name="text">
+    <string>Female</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="Male">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>460</y>
+     <width>101</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 15pt &quot;Mulish&quot;;color:#1D2D5E; 
+height: 47.76695251464844px;
+width: 376.5159912109375px;
+left: 538px;
+top: 229px;
+border-radius: 13.25760269165039px;
+border: 1.4px solid #2B3242;
+padding-left:15px;</string>
+   </property>
+   <property name="text">
+    <string>Male</string>
    </property>
   </widget>
  </widget>

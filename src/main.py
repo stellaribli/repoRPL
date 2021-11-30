@@ -37,17 +37,15 @@ class Login(QDialog):
         email=self.email.text()
         password=self.password.text()
         print("Successfully logged in with email: ", email, "and password:", password)
-        
-        data = requests.get('http://127.0.0.1:8000/booking')
-        print(data.json())
+        return
+        # data = requests.get('http://127.0.0.1:8000/booking')
+        # print(data.json())
 
     def gotocreate(self):
         createacc=CreateAcc()
         widget.addWidget(createacc)
         widget.setCurrentIndex(widget.currentIndex()+1)
 
-data = requests.get('http://127.0.0.1:8000/testt')
-print(data.json())
 
 class CreateAcc(QDialog):
     def __init__(self):
