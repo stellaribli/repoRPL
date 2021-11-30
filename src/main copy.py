@@ -58,7 +58,7 @@ class Login(QDialog):
         password=self.password.text()
         f = {'email' : email, 'password' : password}
         parsed = (urllib.parse.urlencode(f))
-        url = 'http://127.0.0.1:8000/login?' + parsed
+        url = 'https://tuciwir.azurewebsites.net/login?' + parsed
         hasil =  requests.get(url)
         x = str(hasil.text)
         global loggedin
@@ -69,7 +69,7 @@ class Login(QDialog):
             loggedin = True
             f = {'em' : email}
             parsed = (urllib.parse.urlencode(f))
-            url = 'http://127.0.0.1:8000/ambilDataTuteers?' + parsed
+            url = 'https://tuciwir.azurewebsites.net/ambilDataTuteers?' + parsed
             hasil =  requests.get(url)
             currentUser = hasil.json()
             currentName = currentUser['nama']
@@ -81,13 +81,13 @@ class Login(QDialog):
             self.password.setText("")
             # print(currentName)
         else:
-            url = 'http://127.0.0.1:8000/loginadmin?' + parsed
+            url = 'https://tuciwir.azurewebsites.net/loginadmin?' + parsed
             hasil =  requests.get(url)
             if hasil.text == "true":
                 loggedin = True
                 f = {'em' : email}
                 parsed = (urllib.parse.urlencode(f))
-                url = 'http://127.0.0.1:8000/ambilDataReviewer?' + parsed
+                url = 'https://tuciwir.azurewebsites.net/ambilDataReviewer?' + parsed
                 hasil =  requests.get(url)
                 currentUser = hasil.json()
                 cur_user_ID =  currentUser['ID_Reviewer']
@@ -147,7 +147,7 @@ class CreateAcc(QDialog):
             confirmpass = self.confirmpass.text()
             f = {'name': namalengkap, 'email' : email, 'password' : password, 'reenterpass' : confirmpass, 'noHP':nomorhp, 'year':year, 'month':month, 'date' : date,'gender': jen}
             parsed = (urllib.parse.urlencode(f))
-            url = 'http://127.0.0.1:8000/registerSQL?' + parsed
+            url = 'https://tuciwir.azurewebsites.net/registerSQL?' + parsed
             requests.post(url)
             # QLineEdit.clear(self)
             widget.setCurrentIndex(0)
@@ -187,7 +187,7 @@ class ResetPassword(QDialog):
         if self.passbaru.text()==self.passbaru_2.text():
             f = {'email': self.passlama.text(), 'passbaru' : self.passbaru.text()}
             parsed = (urllib.parse.urlencode(f))
-            url = 'http://127.0.0.1:8000/resetPasswordSQL/?' + parsed
+            url = 'https://tuciwir.azurewebsites.net/resetPasswordSQL/?' + parsed
             requests.get(url)
             widget.setCurrentIndex(0)
             self.passbaru.setText("")
@@ -271,19 +271,7 @@ class UploadCV(QDialog):
         self.prosesReview.hide()
         self.delete_button.clicked.connect(self.deleteCV)
         self.homescreen.clicked.connect(self.goToHomeScreen)
-        # self.aboutmebutton.clicked.connect(self.goToAboutMe)
-        # self.layananbutton_4.clicked.connect(self.goToHomeScreen)
-        self.aboutmebutton.hide()
-        self.layananbutton_4.hide()
-        self.logoutbutton.clicked.connect(self.goToLogin)   
 
-    def goToAbout(self):
-        widget.setCurrentIndex(3)
-    
-    def goToLogin(self):
-        global loggedin
-        loggedin = False
-        widget.setCurrentIndex(0)
     def uploadCV(self):
         fileName, _ = QFileDialog.getOpenFileName(self, "Upload CV File", "", "PDF Files (*.pdf)")
         if fileName:
@@ -291,21 +279,21 @@ class UploadCV(QDialog):
             # print(self.uploadedFile)
             self.fileName.setText(os.path.basename(fileName))
             self.delete_button.show()
-
         else:
             print("No file selected")
         
+
     def submitBooking(self, booking_id):
         if self.uploadedFile:
             with open(self.uploadedFile, 'rb') as f:
                 files = {'uploaded_file': f}
                 headers = {'Accept': 'application/json'}
-                request = requests.put(f'http://127.0.0.1:8000/upload-cv?booking_id={booking_id}', files=files, headers=headers)
+                request = requests.put(f'https://tuciwir.azurewebsites.net/upload-cv?booking_id={booking_id}', files=files, headers=headers)
                 # print(request.status_code)
                 # print(request.text)
                 if (request.text[0] == "CV exists!"):
                     self.remove_CV_from_Booking(booking_id)
-                    request = requests.put(f'http://127.0.0.1:8000/upload-cv?booking_id={booking_id}', files=files, headers=headers)
+                    request = requests.put(f'https://tuciwir.azurewebsites.net/upload-cv?booking_id={booking_id}', files=files, headers=headers)
                     # print(request.status_code)
                     # print(request.text['message'])
                     QMessageBox.about(self, "Success", f"CV untuk booking {booking_id} berhasil di upload!")
@@ -316,15 +304,16 @@ class UploadCV(QDialog):
                 self.uploadButton.hide()
                 self.submitBookingButton.hide()
                 self.prosesReview.show()
-                self.aboutmebutton.show()
-                self.layananbutton_4.show()
-
+                # self.aboutmebutton.show()
+                # self.layananbutton_4.show()
         else:
             QMessageBox.warning(self, "Warning", "Please upload your CV file")
     
+    
     def getPaketBooking(self, booking_id):
-        data = requests.get(f'http://127.0.0.1:8000/paket-of-booking?booking_id={booking_id}')
+        data = requests.get(f'https://tuciwir.azurewebsites.net/paket-of-booking?booking_id={booking_id}')
         return data
+    
     
     def deleteCV(self):
         self.uploadedFile = None
@@ -332,7 +321,7 @@ class UploadCV(QDialog):
         self.delete_button.hide()
 
     def remove_CV_from_Booking(self, booking_id):
-        req = requests.put(f'http://127.0.0.1:8000/remove-cv-from-booking?booking_id={booking_id}')
+        req = requests.put(f'https://tuciwir.azurewebsites.net/remove-cv-from-booking?booking_id={booking_id}')
         # print(req.text)
 
     def goToHomeScreen(self):
@@ -368,12 +357,12 @@ class PilihPaket(QDialog):
         
     def pesanpaket(self, paket_id, tuteers_id):
         global cur_booking_id
-        req = requests.post(f'http://127.0.0.1:8000/create-booking?paket_id={paket_id}&tuteers_id={tuteers_id}')
+        req = requests.post(f'https://tuciwir.azurewebsites.net/create-booking?paket_id={paket_id}&tuteers_id={tuteers_id}')
         if paket_id:
             print("Berhasil membuat pesanan")
 
             #update current id booking
-            dataBooking = requests.get(f'http://127.0.0.1:8000/booking-by-tuteers_id?tuteers_id={tuteers_id}')
+            dataBooking = requests.get(f'https://tuciwir.azurewebsites.net/booking-by-tuteers_id?tuteers_id={tuteers_id}')
             booking_id = int(dataBooking.json())
             cur_booking_id = booking_id
             print("id Booking saat ini " + str(cur_booking_id))
@@ -384,11 +373,11 @@ class PilihPaket(QDialog):
             #self.close()
 
     def getPaket(self, paket_id):
-        data = requests.get(f'http://127.0.0.1:8000/paket-by-paket_id?paket_id={paket_id}')
+        data = requests.get(f'https://tuciwir.azurewebsites.net/paket-by-paket_id?paket_id={paket_id}')
         return data.json()
     
     def getBookingTuteers(self, tuteers_id):
-        data = requests.get(f'http://127.0.0.1:8000/booking-by-tuteers_id?tuteers_id={tuteers_id}')
+        data = requests.get(f'https://tuciwir.azurewebsites.net/booking-by-tuteers_id?tuteers_id={tuteers_id}')
         return data.json()
     
     def goToHomepage(self):
@@ -438,7 +427,7 @@ class Pembayaran(QDialog):
     
 
     def pembayaran(self,booking_id):
-        req = requests.post(f'http://127.0.0.1:8000/create-transaksi?booking_id={booking_id}')
+        req = requests.post(f'https://tuciwir.azurewebsites.net/create-transaksi?booking_id={booking_id}')
         if booking_id:
             print("berhasil melakukan pembayaran untuk No.Booking "+str(booking_id))
             upload = UploadCV()
@@ -447,7 +436,7 @@ class Pembayaran(QDialog):
             
 
     def BatalPesanan(self, booking_id):
-        req = requests.delete(f'http://127.0.0.1:8000/delete-booking-by-booking_id?booking_id={booking_id}')
+        req = requests.delete(f'https://tuciwir.azurewebsites.net/delete-booking-by-booking_id?booking_id={booking_id}')
         if booking_id:
             print("berhasil membatalkan pesanan dengan No. Booking "+str(booking_id))
             pilihpaket = PilihPaket()
@@ -457,11 +446,11 @@ class Pembayaran(QDialog):
             #self.close()
 
     def getPaketofBooking(self, booking_id):
-        data = requests.get(f'http://127.0.0.1:8000/paket-of-booking?booking_id={booking_id}')
+        data = requests.get(f'https://tuciwir.azurewebsites.net/paket-of-booking?booking_id={booking_id}')
         return data.json()
     
     def getBooking(self, booking_id):
-        data = requests.get(f'http://127.0.0.1:8000/booking-by-booking_id?booking_id={booking_id}')
+        data = requests.get(f'https://tuciwir.azurewebsites.net/booking-by-booking_id?booking_id={booking_id}')
         return data.json()
 
 #CacCAA
@@ -486,7 +475,7 @@ class MainReviewer2(QDialog, QMainWindow):
 
     def load_data(self):
         headers = {'Accept': 'application/json'}
-        req = requests.get(f'http://127.0.0.1:8000/reviewerbookingdia?reviewer_id={cur_user_ID}', headers=headers)
+        req = requests.get(f'https://tuciwir.azurewebsites.net/reviewerbookingdia?reviewer_id={cur_user_ID}', headers=headers)
         booking_data = req.json()
         self.tabelsemuapesanan.setRowCount(len(booking_data))
         row = 0
@@ -531,7 +520,7 @@ class MainReviewer1(QDialog, QMainWindow):
 
     def load_data1(self):
         headers = {'Accept': 'application/json'}
-        req = requests.get('http://127.0.0.1:8000/reviewerbooking', headers=headers)
+        req = requests.get('https://tuciwir.azurewebsites.net/reviewerbooking', headers=headers)
         booking_data = req.json()
         self.tabelsemuapesanan.setRowCount(len(booking_data))
         row = 0
