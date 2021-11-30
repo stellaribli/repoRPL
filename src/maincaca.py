@@ -26,13 +26,14 @@ class MainReviewer2(QDialog, QMainWindow):
     def __init__(self):
         super(MainReviewer2,self).__init__()
         loadUi('reviewercus.ui',self)  
-        self.tabelsemuapesanan.setColumnWidth(0,220) 
+        self.tabelsemuapesanan.setColumnWidth(0,180) 
         self.tabelsemuapesanan.setColumnWidth(1,280) 
-        self.tabelsemuapesanan.setColumnWidth(2,320)  
+        self.tabelsemuapesanan.setColumnWidth(2,280)  
         self.buttonpesanan.clicked.connect(self.gotomain1)
         self.buttonunduh.clicked.connect(self.download_cv)
         self.buttonunggah.clicked.connect(self.upload_cv)
         self.load_data()
+
 
     def load_data(self):
         cur_user_id = 1
@@ -69,7 +70,7 @@ class MainReviewer2(QDialog, QMainWindow):
             r.status_code = "Connection refused"
             print(r.status_code)
     
-    def uploadCV(self):
+    def upload_cv(self):
         fileName, _ = QFileDialog.getOpenFileName(self, "Upload CV File", "", "PDF Files (*.pdf)")
         if fileName:
             self.uploadedFile = fileName
@@ -86,9 +87,9 @@ class MainReviewer1(QDialog, QMainWindow):
     def __init__(self):
         super(MainReviewer1,self).__init__()
         loadUi('reviewerall.ui',self)  
-        self.tabelsemuapesanan.setColumnWidth(0,220) 
+        self.tabelsemuapesanan.setColumnWidth(0,180) 
         self.tabelsemuapesanan.setColumnWidth(1,280) 
-        self.tabelsemuapesanan.setColumnWidth(2,320)
+        self.tabelsemuapesanan.setColumnWidth(2,280)
         self.buttonpesanandia.clicked.connect(self.gotomain2)
         self.buttonpilih.clicked.connect(self.ambilpilihan)
         self.load_data1()
@@ -122,11 +123,11 @@ class MainReviewer1(QDialog, QMainWindow):
         widget.setCurrentIndex(widget.currentIndex()+1)
 
 app=QApplication(sys.argv)
-mainreviewer=MainReviewer1()
+mainreviewer=MainReviewer2()
 widget=QtWidgets.QStackedWidget()
 widget.addWidget(mainreviewer)
-widget.setFixedWidth(1600)
-widget.setFixedHeight(900)
+widget.setFixedWidth(1280)
+widget.setFixedHeight(720)
 widget.show()
 try:
     sys.exit(app.exec_())
